@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+
+    <title>Strings</title>
+
+    <style>
+      html {
+        font-family: sans-serif;
+      }
+
+      body {
+        width: 50%;
+        max-width: 800px;
+        min-width: 480px;
+        margin: 0 auto;
+      }
+
+      .lastResult {
+        color: white;
+        padding: 3px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>String Test</h1>
+
+    <p>Simple display string</p>
+
+    <div class="form">
+      <label for="strField">Enter String: </label><input type="text" id="strField" class="strField">
+      <input type="submit" value="Submit" class="strSubmit">
+	</div>
+
+    <div class="resultStr">
+      <p class="displayStr"></p>
+    </div>
+
+    <div class="resultStr">
+      <p class="strCount"></p>
+    </div>
+
+    <div class="resultStr">
+      <p class="strFirst"></p>
+    </div>
+
+    <div class="resultStr">
+      <p class="strLast"></p>
+    </div>
+
+    <div class="resultStr">
+      <p class="strAs"></p>
+    </div>
+
+    <script>
+    	const ans     = document.querySelector('.strSubmit');
+    	const strFld  = document.querySelector('.strField');
+    	const strDisp = document.querySelector('.displayStr');
+    	const strCnt  = document.querySelector('.strCount');
+    	const strFC   = document.querySelector('.strFirst');
+    	const strLC   = document.querySelector('.strLast');
+    	const strAs   = document.querySelector('.strAs');
+
+	    	function dispString (){
+	    		let strq      = String(strField.value);
+	    		let strLength = String(strq.length);
+	    		let strFChar  = String(strq[0]);
+	    		let strLChar  = String(strq[strq.length-1]);
+
+	    		strDisp.textContent = "String: "+strq;
+	    		strCnt.textContent = strq + " is "+ strLength + " characters long";
+	    		strFC.textContent = strq + "'s first character is "+"'"+ strFChar +"'";
+	    		strLC.textContent = strq + "'s last character is "+"'"+ strLChar+"'";
+	    		
+	    		let aCount = 0;
+	    		for(let i = 0; i < strq.length; i++){
+	    			if (strq[i] == 'a'||strq[i] == 'e'||strq[i] == 'i'||strq[i] == 'o'||strq[i] == 'u'){
+	    				aCount += 1;
+	    			}
+	    		}
+
+	    		strAs.textContent = "The number of vowels in "+strq+" is "+aCount;
+
+	    		strFld.value = '';
+	    		
+	    	}
+	    ans.addEventListener('click', dispString);	
+
+    </script>
+  </body>
+</html>
+

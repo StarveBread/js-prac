@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+
+    <title>Multi-Calculator</title>
+
+    <style>
+      html {
+        font-family: sans-serif;
+      }
+
+      body {
+        width: 50%;
+        max-width: 800px;
+        min-width: 480px;
+        margin: 0 auto;
+      }
+
+      .lastResult {
+        color: white;
+        padding: 3px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>Multi-Calculator</h1>
+
+    <p>This automatically gets the sum, difference, product, quotient, between two numbers.</p>
+
+    <div class="form">
+      <label for="num1Field">Enter Number 1: </label><input type="text" id="num1Field" class="num1Field">
+    </div>
+
+    <div class="form">
+      <label for="num2Field">Enter Number 2: </label><input type="text" id="num2Field" class="num2Field">
+      <input type="submit" value="Solve" class="ansSubmit">
+	</div>
+
+    <div class="resultAns">
+      <p class="totalSum"></p>
+    </div>
+
+    <div class="resultAns">
+      <p class="totalSub"></p>
+    </div>
+
+    <div class="resultAns">
+      <p class="totalPro"></p>
+    </div>
+
+	<div class="resultAns">
+      <p class="totalQuo"></p>
+    </div>
+
+    <script>
+    	const ans      = document.querySelector('.ansSubmit');
+    	const num1     = document.querySelector('.num1Field');
+    	const num2     = document.querySelector('.num2Field');
+    	const contSum  = document.querySelector('.totalSum');
+    	const contSub  = document.querySelector('.totalSub');
+    	const contPro  = document.querySelector('.totalPro');
+    	const contQuo  = document.querySelector('.totalQuo');
+
+	    	function solveAns (){
+	    		let num1q = Number(num1Field.value);
+	    		let num2q = Number(num2Field.value);
+
+	    		let ansSum = num1q + num2q;
+	    		let ansSub = num1q - num2q;
+	    		let ansPro = num1q * num2q;
+	    		let ansQuo = num1q / num2q;
+	    		let ansRem = num1q % num2q;
+
+	    		contSum.textContent = 'The sum of '+num1q+' and '+num2q+' is '+ansSum;
+	    		contSub.textContent = 'The difference of '+num1q+' and '+num2q+' is '+ansSub;
+	    		contPro.textContent = 'The product of '+num1q+' and '+num2q+' is '+ansPro;
+	    		if (ansRem == 0){
+					contQuo.textContent = 'The quotient of '+num1q+' and '+num2q+' is '+ansQuo;
+	    		}else{
+	    			contQuo.textContent = 'The quotient of '+num1q+' and '+num2q+' is '+ansQuo+' remainder '+ansRem;
+	    		}
+	    		
+	    		num1.value = '';
+	    		num2.value = '';
+	    		
+	    	}
+	    ans.addEventListener('click', solveAns);	
+
+    </script>
+  </body>
+</html>
+
