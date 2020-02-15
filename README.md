@@ -1,2 +1,2 @@
-#JavaScript Practice
+# JavaScript Practice
 uwu
